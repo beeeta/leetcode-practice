@@ -1,4 +1,5 @@
 import exifread
+import requests
 from manager import Manager
 
 manager = Manager()
@@ -46,9 +47,16 @@ def parse_lat_lon(img_path):
                 loc.lonr = tags[tag]
         return loc
 
+def _loc_city(lat,lon):
+    URL = 'http://apis.map.qq.com/jsapi?qt=pos&tp=lonlat&wd={}%2C{}&output=jsonp&pf=jsapi&ref=jsapi&cb=qq.maps._svcb1.city_service_0'.format(lat,lon)
+    res = requests.get(URL)
+
+
 @manager.command
 def loc(path):
     loc = parse_lat_lon(path).location()
+    # get city infor from loc
+
     print(loc)
 
 if __name__ == '__main__':
