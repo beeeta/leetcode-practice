@@ -2,6 +2,9 @@
     parse exif information from image, get city and time information, just chinese city for now
 
     解析图片中的经纬度信息，获取城市和时间信息,使用腾讯地图api，仅支持中国地区
+
+    use:
+        python lcimg.py loc [image_file_path]
 """
 import exifread
 import requests
