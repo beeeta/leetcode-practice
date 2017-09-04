@@ -1,1 +1,1 @@
-### solve litter problems on leetcode with python
+### solve litter problems with python
