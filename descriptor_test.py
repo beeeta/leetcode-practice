@@ -1,3 +1,4 @@
+
 class Dec(object):
     def __init__(self):
         self.name = ''
