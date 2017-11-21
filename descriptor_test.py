@@ -1,15 +1,20 @@
-class T:
+
+class Dec(object):
+    def __init__(self):
+        self.name = ''
+
     def __get__(self, instance, owner):
-        print('T get ')
-        return 'ttt'
+        return self.name
 
-class M:
-    t = T()
+    def __set__(self, instance, value):
+        self.name = value.title()
 
-    @classmethod
-    def get_t(cls):
-        cls.__dict__['t'] = 'dict_value'
+class Owner(object):
+        d = Dec()
 
+if __name__ == '__main__':
+    owner = Owner()
+    print(owner.d)
+    owner.d = 'abc'
+    print(owner.d)
 
-M.get_t()
-M.t
